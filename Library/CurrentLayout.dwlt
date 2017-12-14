@@ -13,14 +13,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 105
-    y: 136
+    x: 12
+    y: 55
     width: 1467
     height: 981
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 4}
-  m_MinSize: {x: 950, y: 341}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -40,8 +40,8 @@ MonoBehaviour:
     y: 454
     width: 338
     height: 477
-  m_MinSize: {x: 102, y: 41}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 100, y: 20}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -67,10 +67,10 @@ MonoBehaviour:
     y: 0
     width: 338
     height: 931
-  m_MinSize: {x: 102, y: 82}
-  m_MaxSize: {x: 4002, y: 8042}
+  m_MinSize: {x: 102, y: 61}
+  m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
-  controlID: 68
+  controlID: 52
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -92,7 +92,7 @@ MonoBehaviour:
     y: 0
     width: 1467
     height: 981
-  m_MinSize: {x: 950, y: 341}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &5
 MonoBehaviour:
@@ -157,10 +157,10 @@ MonoBehaviour:
     y: 30
     width: 1467
     height: 931
-  m_MinSize: {x: 717, y: 291}
-  m_MaxSize: {x: 22012, y: 14021}
+  m_MinSize: {x: 717, y: 312}
+  m_MaxSize: {x: 22012, y: 14042}
   vertical: 0
-  controlID: 67
+  controlID: 72
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -229,12 +229,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 554
     y: 0
-    width: 481
+    width: 541
     height: 931
-  m_MinSize: {x: 234, y: 291}
-  m_MaxSize: {x: 10004, y: 14021}
+  m_MinSize: {x: 234, y: 312}
+  m_MaxSize: {x: 10004, y: 14042}
   vertical: 1
-  controlID: 142
+  controlID: 93
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +251,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 481
+    width: 541
     height: 620
   m_MinSize: {x: 234, y: 271}
   m_MaxSize: {x: 10004, y: 10021}
@@ -276,10 +276,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 620
-    width: 481
+    width: 541
     height: 311
-  m_MinSize: {x: 100, y: 20}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 104, y: 41}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -299,9 +299,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1035
+    x: 1095
     y: 0
-    width: 432
+    width: 372
     height: 931
   m_MinSize: {x: 277, y: 71}
   m_MaxSize: {x: 4002, y: 4021}
@@ -368,8 +368,8 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 105
-    y: 639
+    x: 12
+    y: 558
     width: 336
     height: 456
   m_MaximizeOnPlay: 0
@@ -444,8 +444,8 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 105
-    y: 185
+    x: 12
+    y: 104
     width: 336
     height: 433
   m_SceneLighting: 1
@@ -519,15 +519,15 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 445
-    y: 185
+    x: 352
+    y: 104
     width: 212
     height: 910
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7a2e0000
-    m_LastClickedID: 11898
-    m_ExpandedIDs: a6fbffff00000000
+    m_SelectedIDs: 76010000
+    m_LastClickedID: 0
+    m_ExpandedIDs: 9cfbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -572,9 +572,9 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 661
-    y: 185
-    width: 477
+    x: 568
+    y: 104
+    width: 537
     height: 599
   m_SearchFilter:
     m_NameFilter: 
@@ -588,19 +588,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/StreamingAssets/DummyData
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/@Themes
+  - Assets/StreamingAssets/DummyData
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\Users\komiya\Documents\Unity\Projects\WGB\WGB-develop
+  m_LastProjectPath: C:\Users\komiya\Documents\Unity\Projects\WGB\WGB_git
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 442a0000
-    m_LastClickedID: 10820
-    m_ExpandedIDs: 00000000442a0000a82a0000bc2a00000c2b0000222b00000e2c0000302c0000842c0000d22c0000382d0000462d0000542d0000742d00007c2d0000c42d0000c62d0000d02d0000d42d000000ca9a3bffffff7f
+    m_SelectedIDs: c8300000
+    m_LastClickedID: 12488
+    m_ExpandedIDs: 00000000542a0000b82a0000cc2a00001c2b0000322b00001e2c0000402c0000942c0000e22c0000482d0000642d0000842d0000d62d0000e42d0000c230000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -628,7 +628,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000442a0000a82a0000bc2a00000c2b0000222b00000e2c0000302c0000842c0000d22c0000382d0000462d0000542d0000742d00007c2d0000c42d0000c62d0000d02d0000d42d0000
+    m_ExpandedIDs: 00000000542a0000b82a0000cc2a00001c2b0000322b00001e2c0000402c0000942c0000e22c0000482d0000562d0000642d0000842d00008c2d0000d42d0000d62d0000e02d0000e42d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -655,22 +655,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 283900008c430000ae270000e22a0000242b0000f4910000681f0000ce330000d033000008310000c6d7fdff561d00008c1e000084200000f82500005c2000006c1c0000bc1c00005c1c0000c61d0000a22300001c3000006e200000c023000090240000461e000096220000d62700007a3d0000d4a30000762000005a250000de230000082800003628000088370000222800008a270000c82800001e210000d4280000e8280000222100002eaaf6ffa08df3ffd22a0000562b0000f82c0000085f0000ac5f0000642b0000582800008c310000a66000008e2800007c270000022c000030320000a82b0000d22900004e6000008e2e00009e2d0000062a0000023200000c2a0000782f0000043200004a930000a441fcfff62c00005a310000163200009abcfeff70270000183200008e2f0000a0240000722700008c240000c032feff6ab3faff8e240000d02d000050350000243500006031000018280000443000007e3200001e3100005a350000562f000054300000c867000058300000b2300000c8350000ec320000f6f6fdffee320000ca350000a22d000000350000082e0000de370000aa2f0000ea6b00003c2f00009a2f00003a2f0000e8340000962f0000422f0000f6340000a22f0000c6690000262f0000f633000076340000182f0000363100006e2f000002300000aa9ffbff42b2faffee1ef7ff10baf5ff7253f5ff063000007c300000763000005c360000f435000020320000b02f00000e30000028270000202a0000343100001a46fbff8e3c0000d42700007c260000f447000028480000b6980000de26000086270000b4260000c227000000000000182a00009c290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: XmlParser
+      m_OriginalName: XmlParser
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 12506
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
@@ -705,9 +705,9 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 2
-    y: 639
-    width: 477
+    x: 568
+    y: 724
+    width: 537
     height: 290
 --- !u!114 &20
 MonoBehaviour:
@@ -731,11 +731,11 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 1142
-    y: 185
-    width: 430
+    x: 1109
+    y: 104
+    width: 370
     height: 910
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 554.9551}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 300

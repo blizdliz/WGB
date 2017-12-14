@@ -1,0 +1,31 @@
+<Area>
+  <id>0</id>
+  <name>上野事業所エリア</name>
+  <description>よく来たわね。いらっしゃい。</description>
+  <items>
+    <item>
+      <id>0</id>
+      <type>0</type>
+      <name>上野駅近辺</name>
+      <description>上野駅近辺のアイテムです。</description>
+      <Coordinate>
+        <latitude>35.711698</latitude>
+        <longitude>139.775819</longitude>
+        <altitude>0</altitude>
+      </Coordinate>
+      <status>0</status>
+    </item>
+    <item>
+      <id>1</id>
+      <type>0</type>
+      <name>上野事業所</name>
+      <description>上野事業所のアイテムです。</description>
+      <Coordinate>
+        <latitude>35.710827</latitude>
+        <longitude>139.775626</longitude>
+        <altitude>0</altitude>
+      </Coordinate>
+      <status>0</status>
+    </item>
+  </items>
+</Area>
