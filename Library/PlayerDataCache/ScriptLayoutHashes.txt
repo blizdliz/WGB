@@ -180,6 +180,7 @@ a9e1c36c671666e79706791e556d5100 Vuforia.UnityExtensions.dll:Vuforia.VuMarkBehav
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
 edc45978676597aec8b0f6e32c334667 Assembly-CSharp.dll:.MC_AutoRotate
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.XmlParser
 69426f52b01c2751427979a4bdf95eee Assembly-CSharp.dll:.GOCarAvatar
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GoShared.GOCanvasManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GoShared.GOUtils
@@ -199,6 +200,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GoShared.FileHandler
 cac5e62c64bc02a8223e45b78da71b3c Assembly-CSharp.dll:.GOMatHolder
+9968541282c89c952b265ea15739f688 Assembly-CSharp.dll:.ObjectSpawnManager
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 2a56361227def9f56c2cf57a88b32f4d UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
@@ -284,4 +286,4 @@ a9e1c36c671666e79706791e556d5100 Vuforia.UnityExtensions.dll:Vuforia.VuMarkBehav
 3d1b89310e77c34bc0c8d7132231345c Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
-9968541282c89c952b265ea15739f688 Assembly-CSharp.dll:.ObjectSpawnManager
+67dce246f850a9822a7ae904529a361e Assembly-CSharp.dll:.ItemManager
