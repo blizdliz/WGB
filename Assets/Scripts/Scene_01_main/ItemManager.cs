@@ -9,18 +9,38 @@ public class ItemManager : MonoBehaviour
 	private LocationManager m_locationManager;
 
 	[SerializeField]
-	private Coordinates[] m_coordinates;
+	private List<Coordinates> m_coordinates;
 
 	[SerializeField]
-	private GameObject[] m_items;
+	private List<GameObject> m_items;
 
 	[SerializeField]
 	// すでに生成されたアイテムを格納する
 	private List<GameObject> m_currentItems;
 
+	[SerializeField]
+	// xmlを使用しないテスト版の場合はtrueにする
+	private bool m_isTestMode = false;
+
 	// Use this for initialization
 	void Awake ()
 	{
+		if (m_isTestMode)
+		{
+			// テストモード時はプレイヤーアバターの周囲にアイテムを設置する
+			m_coordinates.Clear();
+
+			Coordinates centerCoordinates = m_locationManager.demo_CenterWorldCoordinates;
+			for (int i = 0; i < 5; i++)
+			{
+				double latitude = centerCoordinates.latitude + Random.Range(-0.0005f, 0.0005f);
+				double longitude = centerCoordinates.longitude + Random.Range(-0.0005f, 0.0005f);
+				Coordinates newCoordinates = new Coordinates(latitude, longitude, centerCoordinates.altitude);
+				newCoordinates.latitude = latitude;
+				m_coordinates.Add(newCoordinates);
+			}
+		}
+
 		m_currentItems = new List<GameObject> ();
 
 		// 初回の位置取得時の処理
@@ -45,7 +65,7 @@ public class ItemManager : MonoBehaviour
 		m_currentItems.Clear ();
 		yield return new WaitForSeconds(1.0f);
 
-		for(int i = 0; i < m_coordinates.Length; i++){
+		for(int i = 0; i < m_coordinates.Count; i++){
 			m_currentItems.Add (SpawnItems (m_coordinates [i]));
 		}
 	}

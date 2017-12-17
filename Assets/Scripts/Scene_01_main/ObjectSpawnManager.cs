@@ -1,33 +1,90 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using GoMap;
 using GoShared;
 
-public class ObjectSpawnManager : MonoBehaviour 
+public class ObjectSpawnManager : MonoBehaviour
 {
 	[SerializeField]
-	private Coordinates m_coordinates;
+	private LocationManager m_locationManager;
+
+	[SerializeField]
+	private List<Coordinates> m_coordinates;
+
+	[SerializeField]
+	private List<GameObject> m_items;
+	[SerializeField]
+	private List<GameObject> m_enemies;
+
+	[SerializeField]
+	// すでに生成されたアイテムを格納する
+	private List<GameObject> m_currentItems;
+
+	[SerializeField]
+	// xmlを使用しないテスト版の場合はtrueにする
+	private bool m_isTestMode = false;
 
 	// Use this for initialization
-	void Start ()
+	void Awake()
 	{
-		StartCoroutine (_UpdatePosition());
+		if (m_isTestMode)
+		{
+			// テストモード時はプレイヤーアバターの周囲にアイテムを設置する
+			m_coordinates.Clear();
+
+			Coordinates centerCoordinates = m_locationManager.demo_CenterWorldCoordinates;
+			for (int i = 0; i < 5; i++)
+			{
+				double latitude = centerCoordinates.latitude + Random.Range(-0.0005f, 0.0005f);
+				double longitude = centerCoordinates.longitude + Random.Range(-0.0005f, 0.0005f);
+				Coordinates newCoordinates = new Coordinates(latitude, longitude, centerCoordinates.altitude);
+				newCoordinates.latitude = latitude;
+				m_coordinates.Add(newCoordinates);
+			}
+		}
+
+		m_currentItems = new List<GameObject>();
+
+		// 初回の位置取得時の処理
+		m_locationManager.onOriginSet.AddListener((Coordinates) => { OnOriginSet(Coordinates); });
+		// 位置情報更新時の処理
+		//m_locationManager.onLocationChanged.AddListener((Coordinates) => {OnLocationChanged(Coordinates);});
 	}
 
-	private IEnumerator _UpdatePosition(){
-		while(true){
-			OnOriginSet (m_coordinates);
-			yield return new WaitForSeconds(1.0f);
+	private void OnOriginSet(Coordinates currentLocation)
+	{
+		StartCoroutine(_SpawnObjects(currentLocation));
+	}
+
+	private void OnLocationChanged(Coordinates currentLocation)
+	{
+		StartCoroutine(_SpawnObjects(currentLocation));
+	}
+
+	private IEnumerator _SpawnObjects(Coordinates currentLocation)
+	{
+		yield return new WaitForSeconds(1.0f);
+		for (int i = 0; i < m_currentItems.Count; i++)
+		{
+			Destroy(m_currentItems[i]);
+		}
+		m_currentItems.Clear();
+		yield return new WaitForSeconds(1.0f);
+
+		for (int i = 0; i < m_coordinates.Count; i++)
+		{
+			m_currentItems.Add(SpawnObject(m_coordinates[i]));
 		}
 	}
 
-	void OnOriginSet (Coordinates currentLocation)
+	private GameObject SpawnObject(Coordinates currentLocation)
 	{
 		//Position
-		Vector3 currentPosition = currentLocation.convertCoordinateToVector ();
-		currentPosition.y = transform.position.y;
+		Vector3 currentPosition = currentLocation.convertCoordinateToVector();
+		currentPosition.y = m_items[0].transform.position.y;
 
-		transform.position = currentPosition;
+		GameObject item = Instantiate(m_items[0], currentPosition, Quaternion.identity);
+
+		return item;
 	}
 }
