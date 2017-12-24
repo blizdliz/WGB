@@ -8,16 +8,27 @@ public class ObjectSpawnManager : MonoBehaviour
 	[SerializeField]
 	private LocationManager m_locationManager;
 
+	[HeaderAttribute("Coordinates")]
 	[SerializeField]
 	private List<Coordinates> m_itemCoordinates;
 	[SerializeField]
 	private List<Coordinates> m_enemyCoordinates;
 
+	[HeaderAttribute("GameObject List")]
 	[SerializeField]
 	private List<GameObject> m_items;
 	[SerializeField]
 	private List<GameObject> m_enemies;
 
+	[HeaderAttribute("Objects num")]
+	[SerializeField]
+	// アイテムの生成数
+	private int m_itemNum = 10;
+	[SerializeField]
+	// 敵の生成数
+	private int m_enemyNum = 5;
+
+	[HeaderAttribute("Current Objects")]
 	[SerializeField]
 	// すでに生成されたアイテムを格納する
 	private List<GameObject> m_currentItems;
@@ -25,6 +36,7 @@ public class ObjectSpawnManager : MonoBehaviour
 	// 既に生成された敵を格納する
 	private List<GameObject> m_currentEnemies;
 
+	[HeaderAttribute("for Debug")]
 	[SerializeField]
 	// xmlを使用しないテスト版の場合はtrueにする
 	private bool m_isTestMode = false;
@@ -37,9 +49,9 @@ public class ObjectSpawnManager : MonoBehaviour
 			Coordinates centerCoordinates = m_locationManager.currentLocation;
 			// テストモード時はプレイヤーアバターの周囲にアイテムと敵を設置する
 			// アイテムの座標リストをランダムに作成
-			SetRandomCoordinates(ref m_itemCoordinates, 10, 0.0005f, centerCoordinates);
+			SetRandomCoordinates(ref m_itemCoordinates, m_itemNum, 0.0020f, centerCoordinates);
 			// 敵の座標リストをランダムに作成
-			SetRandomCoordinates(ref m_enemyCoordinates, 5, 0.0010f, centerCoordinates);
+			SetRandomCoordinates(ref m_enemyCoordinates, m_enemyNum, 0.0020f, centerCoordinates);
 		}
 
 		m_currentItems = new List<GameObject>();

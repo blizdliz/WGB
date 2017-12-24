@@ -390,9 +390,10 @@
     <Compile Include="Assets\JMO Assets\MatCap Shaders\Demo\Assets\MC_SwitchTexture.cs" />
     <Compile Include="Assets\Scripts\common\XmlParser.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\AvaterMoveManager.cs" />
-    <Compile Include="Assets\Scripts\Scene_01_main\EnemyManager.cs" />
+    <Compile Include="Assets\Scripts\Scene_01_main\EnemyMoveManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\ItemManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\ObjectSpawnManager.cs" />
+    <Compile Include="Assets\Scripts\Scene_01_main\Scene_01_userActManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GO Map - 3D Map For AR Gaming\Demo\Shaders\InsideShader.shader" />
