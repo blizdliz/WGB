@@ -222,8 +222,12 @@
      <Compile Include="Assets\JMO Assets\MatCap Shaders\Demo\Assets\MC_SwitchTexture.cs" />
      <Compile Include="Assets\Scripts\common\XmlParser.cs" />
      <Compile Include="Assets\Scripts\Scene_01_main\AvaterMoveManager.cs" />
+     <Compile Include="Assets\Scripts\Scene_01_main\AvaterStateManager.cs" />
+     <Compile Include="Assets\Scripts\Scene_01_main\EnemyMoveManager.cs" />
      <Compile Include="Assets\Scripts\Scene_01_main\ItemManager.cs" />
      <Compile Include="Assets\Scripts\Scene_01_main\ObjectSpawnManager.cs" />
+     <Compile Include="Assets\Scripts\Scene_01_main\Scene_01_GameManager.cs" />
+     <Compile Include="Assets\Scripts\Scene_01_main\Scene_01_userActManager.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\JMO Assets\MatCap Shaders\Shaders\MatCap_TextureAdd_Bumped.shader" />
