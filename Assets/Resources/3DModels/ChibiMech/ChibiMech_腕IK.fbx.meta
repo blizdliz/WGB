@@ -3,7 +3,7 @@ guid: 85788b7cd496e6d4ea73615cf2b8081b
 timeCreated: 1503826779
 licenseType: Free
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: 0.!joint_Master
     100002: 1.!joint_Center
@@ -163,10 +163,12 @@ ModelImporter:
     7400008: jouchaku_0_55_vmd
     9500000: //RootNode
     13700000: U_Char
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -195,6 +197,7 @@ ModelImporter:
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Item
   - Enemy
+  - AvaterRange
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Player
   - Item
   - Enemy
-  - 
+  - Field
   - 
   - 
   - 

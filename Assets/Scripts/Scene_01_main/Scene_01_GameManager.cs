@@ -28,7 +28,7 @@ public class Scene_01_GameManager : MonoBehaviour
 	{
 		if (m_gameState == GAME_STATE_NORMAL) {
 			m_currentTimer -= Time.deltaTime;
-			Debug.Log ("残り時間:" + m_currentTimer.ToString());
+			//Debug.Log ("残り時間:" + m_currentTimer.ToString());
 			if (m_currentTimer <= 0) {
 				// 時間切れ
 				GameFailure ();

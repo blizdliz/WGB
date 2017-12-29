@@ -43,11 +43,15 @@ public class AvaterStateManager : MonoBehaviour
 			Debug.Log("敵に接触");
 			m_playerState = PLAYER_STATE_DEATH;
 		}
-		else if (other.gameObject.tag == "Item"){
-			// アイテムに接触
-			Debug.Log("アイテムに接触");
-			ItemManager itemManager = other.GetComponent<ItemManager> ();
-			m_playerItemPoint += itemManager.GetItemValue();
-		}
+	}
+
+	/// <summary>
+	/// アイテム取得処理
+	/// </summary>
+	/// <param name="itemPoint"></param>
+	public void GetItem(int itemPoint)
+	{
+		Debug.Log("アイテム獲得");
+		m_playerItemPoint += itemPoint;
 	}
 }
