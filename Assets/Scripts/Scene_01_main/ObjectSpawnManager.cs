@@ -1,13 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GoShared;
 
 public class ObjectSpawnManager : MonoBehaviour
 {
-	[SerializeField]
-	private LocationManager m_locationManager;
-
 	[HeaderAttribute("Coordinates")]
 	[SerializeField]
 	private List<Coordinates> m_itemCoordinates;
@@ -40,13 +38,11 @@ public class ObjectSpawnManager : MonoBehaviour
 	[SerializeField]
 	// xmlを使用しないテスト版の場合はtrueにする
 	private bool m_isTestMode = false;
-
-	// Use this for initialization
-	void Awake()
+	
+	public void Init(Coordinates centerCoordinates)
 	{
 		if (m_isTestMode)
 		{
-			Coordinates centerCoordinates = m_locationManager.currentLocation;
 			// テストモード時はプレイヤーアバターの周囲にアイテムと敵を設置する
 			// アイテムの座標リストをランダムに作成
 			SetRandomCoordinates(ref m_itemCoordinates, m_itemNum, 0.0020f, centerCoordinates);
@@ -55,11 +51,6 @@ public class ObjectSpawnManager : MonoBehaviour
 		}
 
 		m_currentItems = new List<GameObject>();
-
-		// 初回の位置取得時の処理
-		m_locationManager.onOriginSet.AddListener((Coordinates) => { OnOriginSet(Coordinates); });
-		// 位置情報更新時の処理
-		//m_locationManager.onLocationChanged.AddListener((Coordinates) => {OnLocationChanged(Coordinates);});
 	}
 
 	/// <summary>
@@ -74,22 +65,21 @@ public class ObjectSpawnManager : MonoBehaviour
 		coordinates.Clear();
 		for (int i = 0; i < num; i++)
 		{
-			double latitude = centerCoordinates.latitude + Random.Range(-randomRange, randomRange);
-			double longitude = centerCoordinates.longitude + Random.Range(-randomRange, randomRange);
+			double latitude = centerCoordinates.latitude + UnityEngine.Random.Range(-randomRange, randomRange);
+			double longitude = centerCoordinates.longitude + UnityEngine.Random.Range(-randomRange, randomRange);
 			Coordinates newCoordinates = new Coordinates(latitude, longitude, centerCoordinates.altitude);
 			newCoordinates.latitude = latitude;
 			coordinates.Add(newCoordinates);
 		}
 	}
 
-	private void OnOriginSet(Coordinates currentLocation)
+	/// <summary>
+	/// アイテムと敵を生成する
+	/// </summary>
+	/// <param name="currentLocation"></param>
+	public void SpawnObjects(Coordinates currentLocation, Action<Coordinates> action)
 	{
-		StartCoroutine(_SpawnObjects(currentLocation));
-	}
-
-	private void OnLocationChanged(Coordinates currentLocation)
-	{
-		StartCoroutine(_SpawnObjects(currentLocation));
+		StartCoroutine(_SpawnObjects(currentLocation, action));
 	}
 
 	/// <summary>
@@ -97,9 +87,8 @@ public class ObjectSpawnManager : MonoBehaviour
 	/// </summary>
 	/// <param name="currentLocation"></param>
 	/// <returns></returns>
-	private IEnumerator _SpawnObjects(Coordinates currentLocation)
+	private IEnumerator _SpawnObjects(Coordinates currentLocation, Action<Coordinates> action)
 	{
-		yield return new WaitForSeconds(1.0f);
 		// アイテムを削除
 		for (int i = 0; i < m_currentItems.Count; i++)
 		{
@@ -124,6 +113,8 @@ public class ObjectSpawnManager : MonoBehaviour
 		{
 			m_currentEnemies.Add(SpawnObject(m_enemyCoordinates[i], m_enemies[0]));
 		}
+
+		action(currentLocation);
 	}
 
 	/// <summary>
@@ -141,5 +132,23 @@ public class ObjectSpawnManager : MonoBehaviour
 		GameObject item = Instantiate(obj, currentPosition, Quaternion.identity);
 
 		return item;
+	}
+
+	/// <summary>
+	/// 生成したアイテムの数を返す
+	/// </summary>
+	/// <returns></returns>
+	public int GetSpawnItemNum()
+	{
+		return m_itemNum;
+	}
+
+	/// <summary>
+	/// 生成した敵の数を返す
+	/// </summary>
+	/// <returns></returns>
+	public int GetSpawnEnemyNum()
+	{
+		return m_enemyNum;
 	}
 }

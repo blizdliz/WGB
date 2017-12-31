@@ -17,6 +17,13 @@ public class AvaterStateManager : MonoBehaviour
 	// プレイヤーのアイテム獲得ポイント
 	private int m_playerItemPoint;
 
+	[SerializeField]
+	// ゲームマネージャー
+	private Scene_01_GameManager m_gameManager;
+	[SerializeField]
+	// GUIマネージャークラス
+	private Scene_01_GUIManager m_guiManager;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -30,6 +37,8 @@ public class AvaterStateManager : MonoBehaviour
 	{
 		m_playerState = PLAYER_STATE_NORMAL;
 		m_playerItemPoint = 0;
+		// 取得したアイテム数をGUIにセット
+		m_guiManager.SetAcquiredItemNum(m_playerItemPoint);
 	}
 
 	/// <summary>
@@ -53,5 +62,9 @@ public class AvaterStateManager : MonoBehaviour
 	{
 		Debug.Log("アイテム獲得");
 		m_playerItemPoint += itemPoint;
+		// ゲームマネージャーのアイテム取得処理を呼ぶ
+		m_gameManager.UpdateCurrentItemNum();
+		// アイテム数をGUIにセット
+		m_guiManager.SetAcquiredItemNum(m_playerItemPoint);
 	}
 }

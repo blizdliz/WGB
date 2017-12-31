@@ -29,10 +29,13 @@ public class EnemyMoveManager : MonoBehaviour
 	private GameObject[] m_playerAvaters;
 	// 標的とするプレイヤーアバター
 	private GameObject m_targetPlayerAvater;
+	// ゲームマネージャー
+	private Scene_01_GameManager m_gameManager;
 
 	// Use this for initialization
 	void Start ()
 	{
+		m_gameManager = GameObject.Find("Scene_01_Manager").GetComponent<Scene_01_GameManager>();
 		m_playerAvaters = GameObject.FindGameObjectsWithTag("Player");
 		m_targetPlayerAvater = m_playerAvaters[0];
 
@@ -47,7 +50,6 @@ public class EnemyMoveManager : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		
 	}
 
 	private IEnumerator _move()
@@ -56,37 +58,40 @@ public class EnemyMoveManager : MonoBehaviour
 
 		while (true)
 		{
-			if (m_enemyController.isGrounded)
+			if (m_gameManager.GetGameState() == m_gameManager.GAME_STATE_NORMAL)
 			{
-				m_velocity = Vector3.zero;
-				if (!m_arrived)
+				if (m_enemyController.isGrounded)
 				{
-					m_animator.SetTrigger("Dash");
+					m_velocity = Vector3.zero;
+					if (!m_arrived)
+					{
+						m_animator.SetTrigger("Dash");
+					}
+					m_direction = (m_destination - transform.position).normalized;
+					transform.LookAt(new Vector3(m_destination.x, transform.position.y, m_destination.z));
+					m_velocity = m_direction * m_walkSpeed;
+					Debug.Log(m_destination);
 				}
-				m_direction = (m_destination - transform.position).normalized;
-				transform.LookAt(new Vector3(m_destination.x, transform.position.y, m_destination.z));
-				m_velocity = m_direction * m_walkSpeed;
-				Debug.Log(m_destination);
-			}
-			m_velocity.y += Physics.gravity.y * Time.deltaTime;
-			m_enemyController.Move(m_velocity * Time.deltaTime);
+				m_velocity.y += Physics.gravity.y * Time.deltaTime;
+				m_enemyController.Move(m_velocity * Time.deltaTime);
 
-			//　目的地に到着したかどうかの判定
-			Vector2 selfPos = new Vector2(transform.position.x, transform.position.z);
-			Vector2 destPos = new Vector2(m_destination.x, m_destination.z);
-			if (Vector2.Distance(selfPos, destPos) < 10.0f)
-			{
-				m_arrived = true;
-				m_animator.SetTrigger("Idle");
-				Debug.Log("Arrived");
-			}
+				//　目的地に到着したかどうかの判定
+				Vector2 selfPos = new Vector2(transform.position.x, transform.position.z);
+				Vector2 destPos = new Vector2(m_destination.x, m_destination.z);
+				if (Vector2.Distance(selfPos, destPos) < 10.0f)
+				{
+					m_arrived = true;
+					m_animator.SetTrigger("Idle");
+					Debug.Log("Arrived");
+				}
 
-			if (m_arrived)
-			{
-				// 目的地を再設定する
-				m_destination = SetRandomDestination(m_targetPlayerAvater.transform.position);
-				m_arrived = false;
-				Debug.Log("Destination reset");
+				if (m_arrived)
+				{
+					// 目的地を再設定する
+					m_destination = SetRandomDestination(m_targetPlayerAvater.transform.position);
+					m_arrived = false;
+					Debug.Log("Destination reset");
+				}
 			}
 
 			yield return new WaitForEndOfFrame();
