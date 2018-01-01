@@ -93,6 +93,15 @@ public class Scene_01_GameManager : MonoBehaviour
 	}
 
 	/// <summary>
+	/// プレイヤーが死亡した際の処理
+	/// </summary>
+	public void PlayerDeath()
+	{
+		// プレイヤー死亡
+		GameFailure();
+	}
+
+	/// <summary>
 	/// 残りのアイテム数を更新する
 	/// </summary>
 	public void UpdateCurrentItemNum()

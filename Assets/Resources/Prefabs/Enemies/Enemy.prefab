@@ -726,6 +726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4475199461249266}
   - component: {fileID: 143919777046367184}
+  - component: {fileID: 114939830274191776}
   - component: {fileID: 114648748856428502}
   m_Layer: 10
   m_Name: Enemy
@@ -2278,6 +2279,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_walkSpeed: 3
+--- !u!114 &114939830274191776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1632986272640412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c2b02808d08b442819df9d43774d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_itemValue: 50
 --- !u!119 &119977191798186226
 Projector:
   m_ObjectHideFlags: 1

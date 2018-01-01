@@ -24,6 +24,8 @@ public class EnemyMoveManager : MonoBehaviour
 	private Vector3 m_direction;
 	//　到着フラグ
 	private bool m_arrived;
+	// 生存フラグ
+	private bool m_isDefeated;
 
 	// プレイヤーのアバター配列
 	private GameObject[] m_playerAvaters;
@@ -33,7 +35,7 @@ public class EnemyMoveManager : MonoBehaviour
 	private Scene_01_GameManager m_gameManager;
 
 	// Use this for initialization
-	void Start ()
+	public void Init ()
 	{
 		m_gameManager = GameObject.Find("Scene_01_Manager").GetComponent<Scene_01_GameManager>();
 		m_playerAvaters = GameObject.FindGameObjectsWithTag("Player");
@@ -56,7 +58,7 @@ public class EnemyMoveManager : MonoBehaviour
 	{
 		yield return null;
 
-		while (true)
+		while (m_isDefeated == false)
 		{
 			if (m_gameManager.GetGameState() == m_gameManager.GAME_STATE_NORMAL)
 			{
@@ -65,7 +67,10 @@ public class EnemyMoveManager : MonoBehaviour
 					m_velocity = Vector3.zero;
 					if (!m_arrived)
 					{
-						m_animator.SetTrigger("Dash");
+						if (m_animator.isActiveAndEnabled)
+						{
+							m_animator.SetTrigger("Dash");
+						}
 					}
 					m_direction = (m_destination - transform.position).normalized;
 					transform.LookAt(new Vector3(m_destination.x, transform.position.y, m_destination.z));
@@ -81,7 +86,10 @@ public class EnemyMoveManager : MonoBehaviour
 				if (Vector2.Distance(selfPos, destPos) < 10.0f)
 				{
 					m_arrived = true;
-					m_animator.SetTrigger("Idle");
+					if (m_animator.isActiveAndEnabled)
+					{
+						m_animator.SetTrigger("Idle");
+					}
 					Debug.Log("Arrived");
 				}
 
@@ -108,5 +116,14 @@ public class EnemyMoveManager : MonoBehaviour
 		Vector2 randomDestination = Random.insideUnitCircle * 100;
 
 		return oriDestination + new Vector3(randomDestination.x, 0, randomDestination.y);
+	}
+
+	/// <summary>
+	/// m_isDefeatedをセットする
+	/// </summary>
+	/// <param name="flag"></param>
+	public void SetIsDefeated(bool flag)
+	{
+		m_isDefeated = flag;
 	}
 }

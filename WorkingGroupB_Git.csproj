@@ -398,6 +398,7 @@
     <Compile Include="Assets\Scripts\Scene_01_main\AvaterMoveManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\AvaterRangeManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\AvaterStateManager.cs" />
+    <Compile Include="Assets\Scripts\Scene_01_main\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\EnemyMoveManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\GUI\Scene_01_GameOverGUIManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\GUI\Scene_01_GUIManager.cs" />
@@ -406,7 +407,9 @@
     <Compile Include="Assets\Scripts\Scene_01_main\ItemManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\ObjectSpawnManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\Scene_01_GameManager.cs" />
+    <Compile Include="Assets\Scripts\Scene_01_main\Scene_01_PowerUPGUIManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\Scene_01_userActManager.cs" />
+    <Compile Include="Assets\Scripts\Scene_01_main\WorldSpaceGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

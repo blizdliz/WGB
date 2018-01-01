@@ -42,9 +42,9 @@ public class Scene_01_NormalGUIManager : MonoBehaviour
 	public void SetCurrentTime(double time)
 	{
 		// 時間
-		string tt = Mathf.FloorToInt((float)(time / 360)).ToString().PadLeft(2,'0');
+		string tt = Mathf.FloorToInt((float)(time / 3600)).ToString().PadLeft(2,'0');
 		// 分
-		string mm = Mathf.FloorToInt((float)(time % 360 / 60)).ToString().PadLeft(2, '0');
+		string mm = Mathf.FloorToInt((float)(time % 3600 / 60)).ToString().PadLeft(2, '0');
 		// 秒
 		string ss = Mathf.FloorToInt((float)(time % 360 % 60)).ToString().PadLeft(2, '0');
 		StringBuilder ttmmss = new StringBuilder();

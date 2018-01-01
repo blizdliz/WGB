@@ -24,8 +24,9 @@ public class AvaterRangeManager : MonoBehaviour
 		{
 			// 敵に接触
 			Debug.Log("敵が範囲内に入った");
+			other.gameObject.GetComponent<EnemyManager>().Appear();
 		}
-		if (other.gameObject.tag == "Item")
+		else if (other.gameObject.tag == "Item")
 		{
 			// アイテムに接触
 			Debug.Log("アイテムが範囲内に入った");
@@ -43,8 +44,9 @@ public class AvaterRangeManager : MonoBehaviour
 		{
 			// 敵に接触
 			Debug.Log("敵が範囲外になった");
+			other.gameObject.GetComponent<EnemyManager>().Disappear();
 		}
-		if (other.gameObject.tag == "Item")
+		else if (other.gameObject.tag == "Item")
 		{
 			// アイテムに接触
 			Debug.Log("アイテムが範囲外になった");

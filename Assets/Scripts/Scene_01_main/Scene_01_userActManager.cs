@@ -9,6 +9,7 @@ public class Scene_01_userActManager : MonoBehaviour
 
 	private AvaterStateManager m_avaterStateManager;
 	private const string m_itemTagName = "Item";
+	private const string m_enemyTagName = "Enemy";
 
 	void Start()
 	{
@@ -30,6 +31,7 @@ public class Scene_01_userActManager : MonoBehaviour
 			{
 				if (m_raycastHit.collider.gameObject.CompareTag(m_itemTagName))
 				{
+					Debug.Log("アイテムをクリック");
 					ItemManager itemManager = m_raycastHit.collider.gameObject.GetComponent<ItemManager>();
 					// アイテムが表示状態でかつ未取得のとき
 					if (itemManager.GetIsAppered() && !itemManager.GetIsAcquired() )
@@ -38,6 +40,23 @@ public class Scene_01_userActManager : MonoBehaviour
 						itemManager.OnClickAction();
 						// プレイヤーに対してアイテム取得処理を呼ぶ
 						m_avaterStateManager.GetItem(itemManager.GetItemValue());
+					}
+				}
+				else if (m_raycastHit.collider.gameObject.CompareTag(m_enemyTagName))
+				{
+					Debug.Log("敵をクリック");
+					if (m_avaterStateManager.GetPlayerState() == m_avaterStateManager.PLAYER_STATE_POWERUP)
+					{
+						// プレイヤーが無敵モードのとき
+						EnemyManager enemyManager = m_raycastHit.collider.gameObject.GetComponent<EnemyManager>();
+						// 敵が表示状態でかつ未取得のとき
+						if (enemyManager.GetIsAppered() && !enemyManager.GetIsDefeated())
+						{
+							// 敵に対してクリックアクション処理を呼ぶ
+							enemyManager.OnClickAction();
+							// プレイヤーに対して敵討伐処理を呼ぶ
+							m_avaterStateManager.DefeatEnemy(enemyManager.GetItemValue());
+						}
 					}
 				}
 			}
