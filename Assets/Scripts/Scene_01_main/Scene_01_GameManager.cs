@@ -15,7 +15,6 @@ public class Scene_01_GameManager : MonoBehaviour
 	[SerializeField]
 	private LocationManager m_locationManager;
 
-
 	[SerializeField]
 	// ゲームの残り時間
 	private double m_timer = 60;

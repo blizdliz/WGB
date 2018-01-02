@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 9c1a8799fd0ea3542aa3f2aa19b8d7f0
-timeCreated: 1514627223
+guid: 68ec775ad7b55af4d8fbc7100fbd8a68
+timeCreated: 1514860832
 licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
@@ -10,9 +10,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: haramase_nyanko
+  fontName: GAU_font_cube_B
   fontNames:
-  - haramase_nyanko
+  - GAU_font_cube_B
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

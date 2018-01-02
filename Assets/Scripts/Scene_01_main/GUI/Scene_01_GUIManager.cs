@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class Scene_01_GUIManager : MonoBehaviour
 {
+	private AllSceneManagementBehavior m_allSceneManager;
+
 	[SerializeField]
 	private Scene_01_NormalGUIManager m_normalGUIManager;
 	[SerializeField]
@@ -17,6 +19,11 @@ public class Scene_01_GUIManager : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		GameObject allSceneManager = GameObject.FindGameObjectWithTag("AllSceneManager");
+		if (allSceneManager != null)
+		{
+			m_allSceneManager = allSceneManager.GetComponent<AllSceneManagementBehavior>();
+		}
 		m_normalGUIManager.InitGUI();
 		m_gameOverGUIManager.InitGUI();
 		m_resultGUIManager.InitGUI();
@@ -73,5 +80,16 @@ public class Scene_01_GUIManager : MonoBehaviour
 	{
 		m_gameOverGUIManager.HideGUI();
 		m_resultGUIManager.DisplayGUI();
+	}
+
+	/// <summary>
+	/// タイトル画面へ戻る処理
+	/// </summary>
+	public void SceneChange_Scene00_title()
+	{
+		if (m_allSceneManager != null)
+		{
+			m_allSceneManager.SceneChange_Scene00_title();
+		}
 	}
 }
