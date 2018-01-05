@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Scene_01_GameOverGUIManager : MonoBehaviour
 {
+	[SerializeField]
+	private GameObject m_gameOverText;
+	[SerializeField]
+	private GameObject m_bgImage;
+	[SerializeField]
+	private GameObject m_okButton;
+
 	/// <summary>
 	/// GUIを初期化する
 	/// </summary>
@@ -18,6 +25,40 @@ public class Scene_01_GameOverGUIManager : MonoBehaviour
 	public void DisplayGUI()
 	{
 		this.gameObject.SetActive(true);
+		StartCoroutine(_DisplayGUISequence());
+	}
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <returns></returns>
+	private IEnumerator _DisplayGUISequence()
+	{
+		CanvasGroup bgCanvasGroup = m_bgImage.GetComponent<CanvasGroup>();
+
+		RectTransform textTransform = m_gameOverText.GetComponent<RectTransform>();
+
+		CanvasGroup buttonCanvasGroup = m_okButton.GetComponent<CanvasGroup>();
+
+		bgCanvasGroup.alpha = 0.0f;
+
+		textTransform.localPosition = new Vector3(0f, 720f, 0f);
+
+		buttonCanvasGroup.alpha = 0.0f;
+
+		while (bgCanvasGroup.alpha < 1.0f)
+		{
+			bgCanvasGroup.alpha += 0.1f;
+			buttonCanvasGroup.alpha += 0.1f;
+			yield return new WaitForSeconds(0.01f);
+		}
+
+		while (textTransform.localPosition.y > 0)
+		{
+			textTransform.localPosition += new Vector3(0f, -30f, 0f);
+			yield return new WaitForSeconds(0.01f);
+		}
+		yield return null; 
 	}
 
 	/// <summary>
