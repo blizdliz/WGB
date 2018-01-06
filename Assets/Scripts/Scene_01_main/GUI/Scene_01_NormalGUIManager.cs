@@ -29,10 +29,10 @@ public class Scene_01_NormalGUIManager : MonoBehaviour
 	/// </summary>
 	public void InitGUI()
 	{
-		m_currentTimeText.text = "Loading";
-		m_aqcuredItemNumText.text = "Loading";
-		m_currentItemNumText.text = "Loading";
-		m_currentEnemyNumText.text = "Loading";
+		m_currentTimeText.text = "LOADING";
+		m_aqcuredItemNumText.text = "...";
+		m_currentItemNumText.text = "...";
+		m_currentEnemyNumText.text = "...";
 	}
 
 	/// <summary>
@@ -54,12 +54,12 @@ public class Scene_01_NormalGUIManager : MonoBehaviour
 	}
 
 	/// <summary>
-	/// 所持アイテム数をセットしてGUI上に反映する
+	/// スコアをセットしてGUI上に反映する
 	/// </summary>
 	/// <param name="num"></param>
 	public void SetAcquiredItemNum(int num)
 	{
-		m_aqcuredItemNumText.text = "×" + num.ToString();
+		m_aqcuredItemNumText.text = num.ToString();
 	}
 
 	/// <summary>

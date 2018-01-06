@@ -68,9 +68,9 @@ public class Scene_01_GUIManager : MonoBehaviour
 	/// <summary>
 	/// ゲームオーバーのGUIを表示する
 	/// </summary>
-	public void DisplayGameOverGUI()
+	public void DisplayGameOverGUI(string text)
 	{
-		m_gameOverGUIManager.DisplayGUI();
+		m_gameOverGUIManager.DisplayGUI(text);
 	}
 
 	/// <summary>

@@ -138,7 +138,7 @@ public class Scene_01_GameManager : MonoBehaviour
 		Debug.Log ("成功!");
 		m_gameState = GAME_STATE_END;
 		// ゲームオーバーGUIを表示
-		m_guiManager.DisplayGameOverGUI();
+		m_guiManager.DisplayGameOverGUI("SUCCESS!");
 	}
 
 	/// <summary>
@@ -149,7 +149,7 @@ public class Scene_01_GameManager : MonoBehaviour
 		Debug.Log ("失敗…");
 		m_gameState = GAME_STATE_END;
 		// ゲームオーバーGUIを表示
-		m_guiManager.DisplayGameOverGUI();
+		m_guiManager.DisplayGameOverGUI("FAILURE...");
 	}
 
 	/// <summary>

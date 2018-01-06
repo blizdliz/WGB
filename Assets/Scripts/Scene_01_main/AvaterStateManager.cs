@@ -17,6 +17,9 @@ public class AvaterStateManager : MonoBehaviour
 	// プレイヤーのアイテム獲得ポイント
 	private int m_playerItemPoint;
 	[SerializeField]
+	// プレイヤーの敵を討伐した数
+	private int m_playerDefeatEnemyNum;
+	[SerializeField]
 	// 無敵ゲージ、ポイント獲得ごとにゲージが溜まる。一定値を超えると無敵モード発動可能（格ゲーかな？）
 	private double m_powerUpGagePoint;
 
@@ -91,12 +94,16 @@ public class AvaterStateManager : MonoBehaviour
 	/// <param name="other">Other.</param>
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == "Enemy"){
-			// 敵に接触
-			Debug.Log("敵に接触");
-			m_playerState = PLAYER_STATE_DEATH;
-			// 敵に触れたことによりプレイヤー死亡
-			m_gameManager.PlayerDeath();
+		if (other.gameObject.tag == "Enemy")
+		{
+			if (m_playerState == PLAYER_STATE_NORMAL)
+			{
+				// 敵に接触
+				Debug.Log("敵に接触");
+				m_playerState = PLAYER_STATE_DEATH;
+				// 敵に触れたことによりプレイヤー死亡
+				m_gameManager.PlayerDeath();
+			}
 		}
 	}
 
@@ -129,6 +136,7 @@ public class AvaterStateManager : MonoBehaviour
 	{
 		Debug.Log("敵を倒した");
 		m_playerItemPoint += point;
+		m_playerDefeatEnemyNum += 1;
 		// ゲームマネージャーの敵討伐処理を呼ぶ
 		m_gameManager.UpdateCurrentEnemyNum();
 		// ポイントをGUIにセット
@@ -149,6 +157,15 @@ public class AvaterStateManager : MonoBehaviour
 	public int GetPlayerItemPoint()
 	{
 		return m_playerItemPoint;
+	}
+
+	/// <summary>
+	/// プレイヤーが倒した敵の数を返す
+	/// </summary>
+	/// <returns></returns>
+	public int GetPlayerDefeatEnemyNum()
+	{
+		return m_playerDefeatEnemyNum;
 	}
 
 	/// <summary>

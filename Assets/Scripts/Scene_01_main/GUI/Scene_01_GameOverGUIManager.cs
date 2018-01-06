@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Scene_01_GameOverGUIManager : MonoBehaviour
 {
@@ -22,21 +23,23 @@ public class Scene_01_GameOverGUIManager : MonoBehaviour
 	/// <summary>
 	/// GUIを表示するときの処理
 	/// </summary>
-	public void DisplayGUI()
+	public void DisplayGUI(string text)
 	{
 		this.gameObject.SetActive(true);
-		StartCoroutine(_DisplayGUISequence());
+		StartCoroutine(_DisplayGUISequence(text));
 	}
 
 	/// <summary>
 	/// 
 	/// </summary>
 	/// <returns></returns>
-	private IEnumerator _DisplayGUISequence()
+	private IEnumerator _DisplayGUISequence(string text)
 	{
 		CanvasGroup bgCanvasGroup = m_bgImage.GetComponent<CanvasGroup>();
 
 		RectTransform textTransform = m_gameOverText.GetComponent<RectTransform>();
+		TMP_Text gameOverText = m_gameOverText.GetComponent<TMP_Text>();
+		gameOverText.text = text;
 
 		CanvasGroup buttonCanvasGroup = m_okButton.GetComponent<CanvasGroup>();
 
