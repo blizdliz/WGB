@@ -34,6 +34,12 @@ public class AvaterStateManager : MonoBehaviour
 	[SerializeField]
 	// プレイヤー強化用のGUIマネージャークラス
 	private Scene_01_PowerUPGUIManager m_powerUpGuiManager;
+	[SerializeField]
+	// 死亡時の音
+	private AudioClip m_deathSound;
+	[SerializeField]
+	// オーディオソース
+	private AudioSource m_audioSource;
 
 	[HeaderAttribute("Defined Param")]
 	[SerializeField]
@@ -101,6 +107,8 @@ public class AvaterStateManager : MonoBehaviour
 				// 敵に接触
 				Debug.Log("敵に接触");
 				m_playerState = PLAYER_STATE_DEATH;
+				// 死亡時の音を鳴らす
+				m_audioSource.PlayOneShot(m_deathSound);
 				// 敵に触れたことによりプレイヤー死亡
 				m_gameManager.PlayerDeath();
 			}

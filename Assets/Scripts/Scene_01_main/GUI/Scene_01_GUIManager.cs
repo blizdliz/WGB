@@ -15,18 +15,23 @@ public class Scene_01_GUIManager : MonoBehaviour
 	private Scene_01_GameOverGUIManager m_gameOverGUIManager;
 	[SerializeField]
 	private Scene_01_ResultGUIManager m_resultGUIManager;
+	[SerializeField]
+	private Scene_01_DebugGUIManager m_debugGUIManager;
 
 	// Use this for initialization
 	void Start ()
 	{
 		GameObject allSceneManager = GameObject.FindGameObjectWithTag("AllSceneManager");
+		bool isDebug = false;
 		if (allSceneManager != null)
 		{
 			m_allSceneManager = allSceneManager.GetComponent<AllSceneManagementBehavior>();
+			isDebug = m_allSceneManager.m_isDebug;
 		}
 		m_normalGUIManager.InitGUI();
 		m_gameOverGUIManager.InitGUI();
 		m_resultGUIManager.InitGUI();
+		m_debugGUIManager.InitGUI(isDebug);
 	}
 
 	/// <summary>
@@ -70,6 +75,7 @@ public class Scene_01_GUIManager : MonoBehaviour
 	/// </summary>
 	public void DisplayGameOverGUI(string text)
 	{
+		m_allSceneManager.StopBGM();
 		m_gameOverGUIManager.DisplayGUI(text);
 	}
 
@@ -78,6 +84,7 @@ public class Scene_01_GUIManager : MonoBehaviour
 	/// </summary>
 	public void DisplayResultGUI()
 	{
+		m_allSceneManager.PlayResultBGM();
 		m_gameOverGUIManager.HideGUI();
 		m_resultGUIManager.DisplayGUI();
 	}

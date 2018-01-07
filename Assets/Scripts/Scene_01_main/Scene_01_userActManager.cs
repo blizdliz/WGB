@@ -11,6 +11,13 @@ public class Scene_01_userActManager : MonoBehaviour
 	private const string m_itemTagName = "Item";
 	private const string m_enemyTagName = "Enemy";
 
+	[SerializeField]
+	private AudioClip m_getItemSound;
+	[SerializeField]
+	private AudioClip m_defeatEnemySound;
+	[SerializeField]
+	private AudioSource m_audioSource;
+
 	void Start()
 	{
 		m_ray = new Ray();
@@ -36,6 +43,8 @@ public class Scene_01_userActManager : MonoBehaviour
 					// アイテムが表示状態でかつ未取得のとき
 					if (itemManager.GetIsAppered() && !itemManager.GetIsAcquired() )
 					{
+						// アイテムクリック音を鳴らす
+						m_audioSource.PlayOneShot(m_getItemSound);
 						// アイテムに対してクリックアクション処理を呼ぶ
 						itemManager.OnClickAction();
 						// プレイヤーに対してアイテム取得処理を呼ぶ
@@ -52,6 +61,8 @@ public class Scene_01_userActManager : MonoBehaviour
 						// 敵が表示状態でかつ未取得のとき
 						if (enemyManager.GetIsAppered() && !enemyManager.GetIsDefeated())
 						{
+							// 敵撃破音を鳴らす
+							m_audioSource.PlayOneShot(m_defeatEnemySound);
 							// 敵に対してクリックアクション処理を呼ぶ
 							enemyManager.OnClickAction();
 							// プレイヤーに対して敵討伐処理を呼ぶ

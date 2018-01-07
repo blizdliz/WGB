@@ -394,6 +394,7 @@
     <Compile Include="Assets\GO Map - 3D Map For AR Gaming\GOShared\Shared Core\MeshJob.cs" />
     <Compile Include="Assets\JMO Assets\MatCap Shaders\Demo\Assets\MC_AutoRotate.cs" />
     <Compile Include="Assets\JMO Assets\MatCap Shaders\Demo\Assets\MC_SwitchTexture.cs" />
+    <Compile Include="Assets\Scripts\AllSceneAudioManager.cs" />
     <Compile Include="Assets\Scripts\AllSceneManagementBehavior.cs" />
     <Compile Include="Assets\Scripts\common\XmlParser.cs" />
     <Compile Include="Assets\Scripts\Scene_00_title\Scene_00_GUIManager.cs" />
@@ -403,6 +404,7 @@
     <Compile Include="Assets\Scripts\Scene_01_main\AvaterStateManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\EnemyMoveManager.cs" />
+    <Compile Include="Assets\Scripts\Scene_01_main\GUI\Scene_01_DebugGUIManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\GUI\Scene_01_GameOverGUIManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\GUI\Scene_01_GUIManager.cs" />
     <Compile Include="Assets\Scripts\Scene_01_main\GUI\Scene_01_NormalGUIManager.cs" />

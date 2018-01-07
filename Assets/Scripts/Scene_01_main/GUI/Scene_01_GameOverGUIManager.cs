@@ -12,6 +12,11 @@ public class Scene_01_GameOverGUIManager : MonoBehaviour
 	[SerializeField]
 	private GameObject m_okButton;
 
+	[SerializeField]
+	private AudioSource m_audioSource;
+	[SerializeField]
+	private AudioClip m_hornAudio;
+
 	/// <summary>
 	/// GUIを初期化する
 	/// </summary>
@@ -26,6 +31,9 @@ public class Scene_01_GameOverGUIManager : MonoBehaviour
 	public void DisplayGUI(string text)
 	{
 		this.gameObject.SetActive(true);
+		// オーディオクリップをセットして再生
+		m_audioSource.PlayOneShot(m_hornAudio);
+
 		StartCoroutine(_DisplayGUISequence(text));
 	}
 

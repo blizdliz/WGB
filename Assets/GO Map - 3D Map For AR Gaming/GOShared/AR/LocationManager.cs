@@ -10,6 +10,13 @@ namespace GoShared {
 
 	public class LocationManager : MonoBehaviour {
 
+		// デバッグ用の移動処理フラグ
+		public bool m_isDebug = false;
+		public bool m_isNorthMove = false;
+		public bool m_isSouthMove = false;
+		public bool m_isEastMove = false;
+		public bool m_isWestMove = false;
+
 		public enum DemoLocation{
 			NewYork, 
 			Rome,
@@ -230,7 +237,7 @@ namespace GoShared {
 				}
 			}
 
-			if (!useLocationServices && Application.isEditor && demoLocation != DemoLocation.NoGPSTest && demoLocation != DemoLocation.SearchMode && !GOUtils.IsPointerOverUI() && motionMode != MotionMode.Avatar) {
+			if (!useLocationServices && Application.isEditor && demoLocation != DemoLocation.NoGPSTest && demoLocation != DemoLocation.SearchMode && !GOUtils.IsPointerOverUI() && motionMode != MotionMode.Avatar || m_isDebug) {
 				changeLocationWASD ();
 			}
 		}
@@ -364,16 +371,22 @@ namespace GoShared {
 			Vector3 current = currentLocation.convertCoordinateToVector ();
 			Vector3 v = current;
 
-			if (Input.GetKey (KeyCode.W)){
+			Debug.Log(m_isNorthMove);
+			if (Input.GetKey (KeyCode.W) || m_isNorthMove)
+			{
+				Debug.Log("GPS移動:北へ");
 				v = current + new Vector3(0, 0 , demo_WASDspeed);
 			}
-			if (Input.GetKey (KeyCode.S)){
+			if (Input.GetKey (KeyCode.S) || m_isSouthMove)
+			{
 				v = current + new Vector3(0, 0 , -demo_WASDspeed);
 			}
-			if (Input.GetKey (KeyCode.A)){
+			if (Input.GetKey (KeyCode.A) || m_isWestMove)
+			{
 				v = current + new Vector3(-demo_WASDspeed, 0 , 0);
 			}
-			if (Input.GetKey (KeyCode.D)){
+			if (Input.GetKey (KeyCode.D) || m_isEastMove)
+			{
 				v = current + new Vector3(demo_WASDspeed, 0 , 0);
 			}
 
