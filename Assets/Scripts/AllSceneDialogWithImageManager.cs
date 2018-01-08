@@ -12,11 +12,14 @@ public class AllSceneDialogWithImageManager : MonoBehaviour
 	[SerializeField]
 	private TMP_Text m_text;
 
+	private Animator m_animator;
+
 	public void Init()
 	{
 		m_titleText.text = "";
 		m_image.sprite = null;
 		m_text.text = "";
+		m_animator = this.gameObject.GetComponent<Animator>();
 		this.gameObject.SetActive(false);
 	}
 
@@ -31,6 +34,7 @@ public class AllSceneDialogWithImageManager : MonoBehaviour
 		m_titleText.text = title;
 		m_image.sprite = image;
 		m_text.text = text;
+		m_animator.SetTrigger("Display");
 		yield return null; 
 	}
 
@@ -41,7 +45,8 @@ public class AllSceneDialogWithImageManager : MonoBehaviour
 
 	private IEnumerator _Hide()
 	{
-		yield return null;
+		m_animator.SetTrigger("Hide");
+		yield return new WaitForSeconds(0.3f);
 		this.gameObject.SetActive(false);
 	}
 }

@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a332d303870fb1458cb87c72a7e7bff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_allSceneManagementObj: {fileID: 1200672001433794, guid: 6cc36e04e83c00041bea8beff86622e6,
+  m_allSceneManagementObj: {fileID: 1708545501416580, guid: 6cc36e04e83c00041bea8beff86622e6,
     type: 2}
   m_scene_00_guiManager: {fileID: 1413860600}
 --- !u!1 &487191403
