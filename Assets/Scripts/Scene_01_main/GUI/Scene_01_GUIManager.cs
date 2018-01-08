@@ -75,7 +75,10 @@ public class Scene_01_GUIManager : MonoBehaviour
 	/// </summary>
 	public void DisplayGameOverGUI(string text)
 	{
-		m_allSceneManager.StopBGM();
+		if (m_allSceneManager != null)
+		{
+			m_allSceneManager.StopBGM();
+		}
 		m_gameOverGUIManager.DisplayGUI(text);
 	}
 
@@ -84,7 +87,10 @@ public class Scene_01_GUIManager : MonoBehaviour
 	/// </summary>
 	public void DisplayResultGUI()
 	{
-		m_allSceneManager.PlayResultBGM();
+		if (m_allSceneManager != null)
+		{
+			m_allSceneManager.PlayResultBGM();
+		}
 		m_gameOverGUIManager.HideGUI();
 		m_resultGUIManager.DisplayGUI();
 	}

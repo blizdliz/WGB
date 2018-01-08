@@ -32,6 +32,9 @@ public class AllSceneManagementBehavior : MonoBehaviour
 
 	// シーンごとのBGMを管理するクラス
 	private AllSceneAudioManager m_allSceneAudioManager;
+	[SerializeField]
+	// ダイアログを管理するクラス
+	private AllSceneDialogManager m_allSceneDialogManager;
 
 	void Start()
 	{
@@ -46,6 +49,8 @@ public class AllSceneManagementBehavior : MonoBehaviour
 		m_allSceneAudioManager = this.gameObject.GetComponent<AllSceneAudioManager>();
 		m_allSceneAudioManager.Init();
 		m_allSceneAudioManager.PlayTitleBGM();
+
+		m_allSceneDialogManager.Init();
 
 		m_bgPanel.GetComponent<CanvasGroup>().alpha = 1.0f;
 		m_bgMaskTransform = m_bgMask.GetComponent<RectTransform>();
@@ -145,5 +150,18 @@ public class AllSceneManagementBehavior : MonoBehaviour
 	public void PlayResultBGM()
 	{
 		m_allSceneAudioManager.PlayResultBGM();
+	}
+
+	// ダイアログに関わる処理
+
+	/// <summary>
+	/// 画像付きダイアログを表示する
+	/// </summary>
+	/// <param name="title"></param>
+	/// <param name="text"></param>
+	/// <param name="image"></param>
+	public void Display_DialogWithImage(string title, string text, Sprite image)
+	{
+		m_allSceneDialogManager.Display_DialogWithImage(title, text, image);
 	}
 }

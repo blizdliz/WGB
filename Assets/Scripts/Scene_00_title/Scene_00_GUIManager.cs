@@ -13,6 +13,11 @@ public class Scene_00_GUIManager : MonoBehaviour
 	private GameObject m_buttonsObj;
 	[SerializeField]
 	private Button m_PlaySoloButton;
+	[SerializeField]
+	private Button m_howToPlayButton;
+
+	[SerializeField]
+	private Sprite m_HowToPlayImage;
 
 	public void Init(AllSceneManagementBehavior allSceneManager)
 	{
@@ -21,6 +26,8 @@ public class Scene_00_GUIManager : MonoBehaviour
 		StartCoroutine(_StartGUISequence());
 		// ボタン押下時のイベントを登録
 		m_PlaySoloButton.onClick.AddListener(OnClick_PlaySoloButton);
+		//m_howToPlayButton.onClick.AddListener(OnClick_HowToPlayButton(null));
+		m_howToPlayButton.onClick.AddListener( () => OnClick_HowToPlayButton(m_HowToPlayImage));
 	}
 
 	/// <summary>
@@ -64,5 +71,13 @@ public class Scene_00_GUIManager : MonoBehaviour
 	public void OnClick_PlaySoloButton()
 	{
 		m_allSceneManager.SceneChange_Scene01_main();
+	}
+
+	/// <summary>
+	/// 遊び方ボタン押下時の処理
+	/// </summary>
+	public void OnClick_HowToPlayButton(Sprite image)
+	{
+		m_allSceneManager.Display_DialogWithImage("遊び方", "制限時間以内にコインを全て集めよう。時間切れになるか、敵に触れるとゲームオーバーだ。", image);
 	}
 }

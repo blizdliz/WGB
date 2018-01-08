@@ -102,7 +102,7 @@ public class AvaterStateManager : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Enemy")
 		{
-			if (m_playerState == PLAYER_STATE_NORMAL)
+			if (m_playerState == PLAYER_STATE_NORMAL && m_gameManager.GetGameState() == m_gameManager.GAME_STATE_NORMAL)
 			{
 				// 敵に接触
 				Debug.Log("敵に接触");

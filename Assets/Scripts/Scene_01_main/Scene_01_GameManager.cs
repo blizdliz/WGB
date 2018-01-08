@@ -37,6 +37,7 @@ public class Scene_01_GameManager : MonoBehaviour
 	/// </summary>
 	void Awake () 
 	{
+		m_gameState = GAME_STATE_ISNOTINIT;
 		// 初回の位置取得時の処理
 		m_locationManager.onOriginSet.AddListener((Coordinates) => { OnOriginSet(Coordinates); });
 		// 位置情報更新時の処理
@@ -61,7 +62,6 @@ public class Scene_01_GameManager : MonoBehaviour
 	/// </summary>
 	private void InitGame(Coordinates currentLocation)
 	{
-		m_gameState = GAME_STATE_ISNOTINIT;
 		// 生成されたアイテムの数を取得しGUIには反映する
 		m_currentItemNum = m_objectSpawnManager.GetSpawnItemNum();
 		m_guiManager.SetCurrentItemNum(m_currentItemNum);
