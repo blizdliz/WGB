@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -90,11 +91,18 @@ public class AllSceneManagementBehavior : MonoBehaviour
 	/// </summary>
 	public void SceneChange_Scene01_main()
 	{
-		m_adsManager.ShowAd();
-		StartCoroutine(_SceneChangeSequence(m_Scene01_main_name));
+		// BGMを止める
+		StopBGM();
+		// アクションを生成
+		Action action = new Action(() =>
+		{
+			StartCoroutine(_SceneChangeSequence(m_Scene01_main_name));
 
-		// デバッグトグル表示処理
-		m_debugToggle.gameObject.SetActive(false);
+			// デバッグトグル表示処理
+			m_debugToggle.gameObject.SetActive(false);
+		});
+		// 広告を表示→広告を閉じるかすべて見終わるとactionの処理を実行する
+		m_adsManager.ShowAd(action);
 	}
 
 	/// <summary>
