@@ -35,6 +35,8 @@ public class AllSceneManagementBehavior : MonoBehaviour
 	[SerializeField]
 	// ダイアログを管理するクラス
 	private AllSceneDialogManager m_allSceneDialogManager;
+	// 広告を管理するクラス
+	private UnityAdsManager m_adsManager;
 
 	void Start()
 	{
@@ -55,6 +57,9 @@ public class AllSceneManagementBehavior : MonoBehaviour
 		m_bgPanel.GetComponent<CanvasGroup>().alpha = 1.0f;
 		m_bgMaskTransform = m_bgMask.GetComponent<RectTransform>();
 		m_bgMaskTransform.localScale = new Vector3(0f, 0f, 1f);
+		// 広告管理クラス
+		m_adsManager = this.gameObject.GetComponent<UnityAdsManager>();
+		m_adsManager.Init();
 	}
 
 	void Update()
@@ -85,6 +90,7 @@ public class AllSceneManagementBehavior : MonoBehaviour
 	/// </summary>
 	public void SceneChange_Scene01_main()
 	{
+		m_adsManager.ShowAd();
 		StartCoroutine(_SceneChangeSequence(m_Scene01_main_name));
 
 		// デバッグトグル表示処理

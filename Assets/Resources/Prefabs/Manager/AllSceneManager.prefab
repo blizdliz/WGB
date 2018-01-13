@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 4197862225643864}
   - component: {fileID: 114946846032390864}
   - component: {fileID: 114090648865019338}
+  - component: {fileID: 114311012511849504}
   - component: {fileID: 82315428804586860}
   m_Layer: 0
   m_Name: AllSceneManager
@@ -702,6 +703,18 @@ MonoBehaviour:
   m_canvasRenderer: {fileID: 222425113165817376}
   m_TextComponent: {fileID: 114577260168753102}
   m_materialReferenceIndex: 1
+--- !u!114 &114311012511849504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1708545501416580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a70487ec9432d374aa492b210c850e8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_adsGameID: 4a13fa9a-5a1b-49f5-b8ef-1dc251190302
 --- !u!114 &114321368183299832
 MonoBehaviour:
   m_ObjectHideFlags: 1
